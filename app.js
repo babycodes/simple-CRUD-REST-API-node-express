@@ -4,6 +4,7 @@ const app = express()
 const morgan = require('morgan')
 
 const productRoutes = require('./api/router/products');
+const productCategoryRoutes = require('./api/router/product_category')
 
 app.use(morgan('dev'))//logging
 app.use(bodyParser.urlencoded({extended:false}))//body-parser urlencode
@@ -23,6 +24,7 @@ app.use((req, res, next) => {
 
 // route middleware
 app.use('/product', productRoutes)
+app.use('/product-category', productCategoryRoutes)
 
 
 // error handler
